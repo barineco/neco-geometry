@@ -1,0 +1,18 @@
+[package]
+name = "geometry-observation-producer"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+geometry-observation-types = { path = "../geometry-observation-types" }
+neco-algnum = { version = "=0.1.2" }
+neco-bigint = { version = "=0.1.2" }
+neco-calculus = { version = "0.2.0" }
+neco-expr = { version = "=0.2.0" }
+neco-geometry = { path = "../../../../neco-geometry" }
+serde_json = "1.0"

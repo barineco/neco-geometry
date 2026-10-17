@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+members = [
+    "neco-geometry-foundation",
+    "neco-geometry",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.82"
+license = "MIT"
+repository = "https://github.com/barineco/neco-geometry"

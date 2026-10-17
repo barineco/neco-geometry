@@ -1,0 +1,30 @@
+name = "neco-geometry-verify"
+version = "0.1.0"
+defaultTargets = ["NecoGeometryVerify", "neco-geometry-checker"]
+
+[leanOptions]
+autoImplicit = false
+
+[[require]]
+name = "neco-lean"
+git = "https://github.com/barineco/neco-lean.git"
+rev = "bf70b4cb63a6bfb18c693e601fea7cb904a455c8"
+
+[[require]]
+name = "neco-algebra-verify"
+git = "https://github.com/barineco/neco-algebra.git"
+rev = "1fbbc3d3afdd936473fca88f360d6b8f03517477"
+subDir = "verification/lean"
+
+[[require]]
+name = "neco-calculus-verify"
+git = "https://github.com/barineco/neco-calculus.git"
+rev = "098885e7b2a0940b7541a20a28f099dc778eafc8"
+subDir = "verification/lean"
+
+[[lean_lib]]
+name = "NecoGeometryVerify"
+
+[[lean_exe]]
+name = "neco-geometry-checker"
+root = "NecoGeometryVerifyTests"

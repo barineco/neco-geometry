@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "caseId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decimalInteger": {
+      "type": "string",
+      "pattern": "^-?(0|[1-9][0-9]*)$"
+    },
+    "rational": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["denominator", "numerator"],
+      "properties": {
+        "denominator": { "$ref": "#/$defs/decimalInteger" },
+        "numerator": { "$ref": "#/$defs/decimalInteger" }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["kind"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["success", "failure"]
+        }
+      }
+    },
+    "case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["caseId", "input", "observation", "operation"],
+      "properties": {
+        "caseId": { "$ref": "#/$defs/caseId" },
+        "input": { "type": "object" },
+        "observation": { "$ref": "#/$defs/observation" },
+        "operation": {
+          "type": "string",
+          "enum": [
+            "region-polynomial-normalization",
+            "region-affine-substitution",
+            "region-formula-construction",
+            "region-membership",
+            "surface-witness-exact",
+            "surface-witness-checked"
+          ]
+        }
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["cases", "schema"],
+  "properties": {
+    "cases": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/case" }
+    },
+    "schema": {
+      "const": "neco.geometry.observation-batch.v1"
+    }
+  }
+}

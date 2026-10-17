@@ -1,0 +1,26 @@
+[package]
+name = "neco-geometry-foundation"
+version = "0.1.1"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "exact geometry foundation over real algebraic coordinates"
+documentation = "https://docs.rs/neco-geometry-foundation"
+readme = "README.md"
+keywords = ["geometry", "exact-arithmetic", "algebra"]
+categories = ["mathematics", "no-std"]
+include = ["Cargo.toml", "README.md", "README-ja.md", "LICENSE", "src/lib.rs", "src/types.rs", "src/construction.rs", "tests/*.rs"]
+
+[package.metadata.docs.rs]
+all-features = true
+
+[features]
+default = ["std"]
+std = ["neco-algnum/std"]
+
+[dependencies]
+neco-algnum = { version = "=0.1.2", default-features = false }
+
+[dev-dependencies]
+neco-bigint = { version = "=0.1.2", default-features = false }

@@ -1,0 +1,30 @@
+[package]
+name = "neco-geometry"
+version = "0.2.5"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "exact shape declarations and evaluation over real algebraic coordinates"
+documentation = "https://docs.rs/neco-geometry"
+readme = "README.md"
+keywords = ["geometry", "exact-arithmetic", "algebra"]
+categories = ["mathematics", "no-std"]
+include = ["Cargo.toml", "src/lib.rs", "src/types.rs", "src/chart_patch.rs", "src/encoding_scalar.rs", "src/surface_encoding.rs", "src/seam_encoding.rs", "src/gpu_crossing.rs", "src/gpu_crossing.wgsl", "src/gpu_contact_predicates.wgsl", "src/gpu_surface_candidates.wgsl", "src/evaluation.rs", "src/region.rs", "src/intersection.rs", "src/boundary.rs", "tests/algebraic_region.rs", "tests/boundary_clone.rs", "tests/boundary_stratification.rs", "tests/intersection_set.rs", "tests/public_api.rs", "tests/ray_crossing.rs", "tests/ray_intersection.rs", "tests/region_polynomial_operations.rs", "tests/shape_evaluation.rs", "tests/sphere_torus.rs", "tests/surface_witness.rs", "tests/support/surface_encoding.rs", "README.md", "README-ja.md", "LICENSE"]
+
+[package.metadata.docs.rs]
+all-features = true
+
+[features]
+default = ["std"]
+std = ["neco-geometry-foundation/std", "neco-calculus/std", "neco-algnum/std", "neco-bigint/std"]
+gpu = []
+
+[dependencies]
+neco-geometry-foundation = { path = "../neco-geometry-foundation", version = "0.1.1", default-features = false }
+neco-calculus = { version = "0.2.0", default-features = false }
+neco-algnum = { version = "=0.1.2", default-features = false }
+neco-bigint = { version = "=0.1.2", default-features = false }
+
+[dev-dependencies]
+neco-expr = { version = "=0.2.0", default-features = false }
